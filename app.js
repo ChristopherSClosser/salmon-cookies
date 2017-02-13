@@ -19,23 +19,35 @@ console.log (storeFirstPike.minCustomersHr + ' is the min, ' + storeFirstPike.ma
 var storeSeaTac = {
   minCustomersHr: 3,
   maxCustomersHr: 24,
-  avgCookiesPerCustomer: 1.2
+  avgCookiesPerCustomer: 1.2,
+  custPerHr: function () {
+    return Math.round (Math.random() * (this.maxCustomersHr - this.minCustomersHr) + this.minCustomersHr);
+  }
 };
 
 var storeSeaCenter = {
   minCustomersHr: 11,
   maxCustomersHr: 38,
-  avgCookiesPerCustomer: 3.7
+  avgCookiesPerCustomer: 3.7,
+  custPerHr: function () {
+    return Math.round (Math.random() * (this.maxCustomersHr - this.minCustomersHr) + this.minCustomersHr);
+  }
 };
 
 var storeCapHill = {
   minCustomersHr: 20,
   maxCustomersHr: 38,
-  avgCookiesPerCustomer: 3.7
+  avgCookiesPerCustomer: 3.7,
+  custPerHr: function () {
+    return Math.round (Math.random() * (this.maxCustomersHr - this.minCustomersHr) + this.minCustomersHr);
+  }
 };
 
 var storeAlki = {
   minCustomersHr: 2,
   maxCustomersHr: 16,
-  avgCookiesPerCustomer: 4.6
+  avgCookiesPerCustomer: 4.6,
+  custPerHr: function () {
+    return Math.round (Math.random() * (this.maxCustomersHr - this.minCustomersHr) + this.minCustomersHr);
+  }
 };
