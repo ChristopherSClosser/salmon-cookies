@@ -2,15 +2,19 @@
 
 /*<---------------object literals--------------->*/
 // declare global variables at the top
+var storeElement = document.createElement ();
 var storeFirstPike = {
   //has some properties
   minCustomersHr: 23,
   maxCustomersHr: 65,
   avgCookiesPerCustomer: 6.3,
+  //should return random number between min and max custPerHr
   custPerHr: function () {
-    math.random();
+    return Math.random() * (this.minCustomersHr - this.maxCustomersHr) + this.minCustomersHr;
   }
 };
+console.log (storeFirstPike.custPerHr());
+console.log (storeFirstPike.minCustomersHr + ' is the min, ' + storeFirstPike.maxCustomersHr + ' is the max');
 
 var storeSeaTac = {
   minCustomersHr: 3,
