@@ -10,7 +10,7 @@ var storeFirstPike = {
   avgCookiesPerCustomer: 6.3,
   //should return random number between min and max custPerHr
   custPerHr: function () {
-    return Math.random() * (this.minCustomersHr - this.maxCustomersHr) + this.minCustomersHr;
+    return Math.round (Math.random() * (this.maxCustomersHr - this.minCustomersHr) + this.minCustomersHr);
   }
 };
 console.log (storeFirstPike.custPerHr());
