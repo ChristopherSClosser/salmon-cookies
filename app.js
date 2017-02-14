@@ -23,6 +23,10 @@ function salesPerDay (storeLocale) {
 for (var i = 0; i < storeLocale.length; i++) {
   salesPerDay (storeLocale[i]);
   console.log (oneHrSales);
+  storeElement.setAttribute ('id', 'list');
+  storeElement.textContent = salesList;
+  var divElement = document.getElementById ('list');
+  storeElement.appendChild (storeElement);
   var total = 0;
   for (var j = 0; j < oneHrSales.length; j++) {
     parseInt (oneHrSales[j]);
