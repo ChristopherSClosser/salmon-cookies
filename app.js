@@ -63,13 +63,13 @@ var storeAlki = {
 var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
 
 for (var i = 0; i < storeLocale.length; i++) {
-  console.log(storeLocale);
+  //console.log(storeLocale[i]);
   salesPerDay (storeLocale[i]);
-  console.log (oneHrSales);
-  storeElement.setAttribute ('id', 'list');
-  storeElement.textContent = salesList;
-  var divElement = document.getElementById ('list');
-  storeElement.appendChild (storeElement);
+  //console.log (oneHrSales);
+  // storeElement.setAttribute ('id', 'list');
+  // storeElement.textContent = salesList;
+  // var divElement = document.getElementById ('list');
+  // storeElement.appendChild (storeElement);
   var total = 0;
   for (var j = 0; j < oneHrSales.length; j++) {
     parseInt (oneHrSales[j]);
@@ -81,7 +81,7 @@ for (var i = 0; i < storeLocale.length; i++) {
 
 function salesPerDay (storeLocale) {
   console.log('----------' + storeName[i] + '----------');
-  console.log(storeLocale[i]);
+  //console.log(storeLocale);
   for (var ii = 0; ii < open.length; ii++) {
     var cookiesPerHr = storeLocale.custPerHr () * storeLocale.avgCookiesPerCustomer;
     console.log(open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
@@ -89,4 +89,5 @@ function salesPerDay (storeLocale) {
     salesList.push (open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
   }
 }
+//console.log(storeLocale);
 //iterates through stores and open times
