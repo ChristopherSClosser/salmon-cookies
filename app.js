@@ -8,7 +8,6 @@ var storeName = ['1st and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hi
 var open = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm', '8pm'];
 var oneHrSales = [];
 
-
 function salesPerDay (storeLocale) {
   console.log('----------' + storeName[i] + '----------');
   for (var ii = 0; ii < open.length; ii++) {
@@ -16,13 +15,18 @@ function salesPerDay (storeLocale) {
     console.log(open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
     oneHrSales.push(Math.round(cookiesPerHr));
   }
+  //loop through oneHrSales parseInt and add
+  // for (var i = 0; i < array.length; i++) {
+  //   array[i]
+  // }
 }
 for (var i = 0; i < storeLocale.length; i++) {
   salesPerDay (storeLocale[i]);
   console.log (oneHrSales);
+  parseInt(oneHrSales);
+  console.log(sumof(oneHrSales));
   oneHrSales = [];
 }
-
 
 var storeFirstPike = {
   //has some properties
