@@ -3,38 +3,12 @@
 /*<---------------object literals--------------->*/
 // declare global variables at the top
 //var storeElement = document.createElement ();
-var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
+
 var storeName = ['1st and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 var open = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm', '8pm'];
 var salesList = [];
 var oneHrSales = [];
 var storeElement = document.createElement ('h2');
-
-function salesPerDay (storeLocale) {
-  console.log('----------' + storeName[i] + '----------');
-  for (var ii = 0; ii < open.length; ii++) {
-    var cookiesPerHr = storeLocale.custPerHr () * storeLocale.avgCookiesPerCustomer;
-    console.log(open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
-    oneHrSales.push(Math.round(cookiesPerHr));
-    salesList.push (open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
-  }
-}
-
-for (var i = 0; i < storeLocale.length; i++) {
-  salesPerDay (storeLocale[i]);
-  console.log (oneHrSales);
-  storeElement.setAttribute ('id', 'list');
-  storeElement.textContent = salesList;
-  var divElement = document.getElementById ('list');
-  storeElement.appendChild (storeElement);
-  var total = 0;
-  for (var j = 0; j < oneHrSales.length; j++) {
-    parseInt (oneHrSales[j]);
-    total = total + oneHrSales[j];
-  }
-  console.log ('The days total is: ' + total);
-  oneHrSales = [];
-}
 
 var storeFirstPike = {
   //has some properties
@@ -86,5 +60,33 @@ var storeAlki = {
     return Math.round (Math.random() * (this.maxCustomersHr - this.minCustomersHr) + this.minCustomersHr);
   }
 };
+var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
 
+for (var i = 0; i < storeLocale.length; i++) {
+  console.log(storeLocale);
+  salesPerDay (storeLocale[i]);
+  console.log (oneHrSales);
+  storeElement.setAttribute ('id', 'list');
+  storeElement.textContent = salesList;
+  var divElement = document.getElementById ('list');
+  storeElement.appendChild (storeElement);
+  var total = 0;
+  for (var j = 0; j < oneHrSales.length; j++) {
+    parseInt (oneHrSales[j]);
+    total = total + oneHrSales[j];
+  }
+  console.log ('The days total is: ' + total);
+  oneHrSales = [];
+}
+
+function salesPerDay (storeLocale) {
+  console.log('----------' + storeName[i] + '----------');
+  console.log(storeLocale[i]);
+  for (var ii = 0; ii < open.length; ii++) {
+    var cookiesPerHr = storeLocale.custPerHr () * storeLocale.avgCookiesPerCustomer;
+    console.log(open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
+    oneHrSales.push(Math.round(cookiesPerHr));
+    salesList.push (open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
+  }
+}
 //iterates through stores and open times
