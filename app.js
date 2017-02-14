@@ -15,16 +15,10 @@ function salesPerDay (storeLocale) {
     console.log(open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
     oneHrSales.push(Math.round(cookiesPerHr));
   }
-  //loop through oneHrSales parseInt and add
-  // for (var i = 0; i < array.length; i++) {
-  //   array[i]
-  // }
 }
 for (var i = 0; i < storeLocale.length; i++) {
   salesPerDay (storeLocale[i]);
   console.log (oneHrSales);
-  parseInt(oneHrSales);
-  console.log(sumof(oneHrSales));
   oneHrSales = [];
 }
 
