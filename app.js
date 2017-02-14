@@ -6,7 +6,9 @@
 var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
 var storeName = ['1st and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 var open = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm', '8pm'];
+var salesList = [];
 var oneHrSales = [];
+var storeElement = document.createElement ('h2');
 
 function salesPerDay (storeLocale) {
   console.log('----------' + storeName[i] + '----------');
@@ -14,11 +16,19 @@ function salesPerDay (storeLocale) {
     var cookiesPerHr = storeLocale.custPerHr () * storeLocale.avgCookiesPerCustomer;
     console.log(open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
     oneHrSales.push(Math.round(cookiesPerHr));
+    salesList.push (open[ii] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
   }
 }
+
 for (var i = 0; i < storeLocale.length; i++) {
   salesPerDay (storeLocale[i]);
   console.log (oneHrSales);
+  var total = 0;
+  for (var j = 0; j < oneHrSales.length; j++) {
+    parseInt (oneHrSales[j]);
+    total = total + oneHrSales[j];
+  }
+  console.log ('The days total is: ' + total);
   oneHrSales = [];
 }
 
