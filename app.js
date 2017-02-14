@@ -16,7 +16,7 @@ CookieStore.prototype.cookiesPerHr = function () {
 };
 
 // CookieStore.prototype.salesPerDay = function () {
-//
+
 // };
 console.log(storeFirstPike.cookiesPerHr());
 
