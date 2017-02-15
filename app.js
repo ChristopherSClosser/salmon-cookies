@@ -6,7 +6,7 @@ var storeSeaTac = new CookieStore('SeaTac Airport', 3, 24, 1.2);
 var storeSeaCenter = new CookieStore('Seattle Center', 11, 38, 2.3);
 var storeCapHill  = new CookieStore('Capitol Hill', 20, 38, 2.3);
 var storeAlki = new CookieStore('Alki', 2, 16, 4.6);
-var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
+var `storeLocale` = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
 
 var tableEl = document.getElementById('tableId');
 //get id for thead wich = tableHeadings
@@ -167,7 +167,7 @@ var storeSeaCenter = new CookieStore('Seattle Center', 11, 38, 2.3);
 var storeCapHill  = new CookieStore('Capitol Hill', 20, 38, 2.3);
 var storeAlki = new CookieStore('Alki', 2, 16, 4.6);
 
-var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki, 'Total'];
+var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
 
 var tableEl = document.getElementById('tableId');
 //get id for thead wich = tableHeadings
@@ -223,13 +223,32 @@ CookieStore.prototype.populateTable = function() {
   //salesPerDay(this.storeLocale);
   // tableRowEl.textContent = this.cookiesPerHr();
   tableEl.appendChild(tableRowEl);
-
-  for (var j = 0; j < storeLocale.length; j++) {
-    var hrSalesAllStoresEl = document.createElement('tr');
-    hrSalesAllStoresEl.textContent += this.oneHrSales[j];
-    tableRowEl.appendChild(hrSalesAllStoresEl);
-  }
 };
+
+function createHrTotalsRow(){
+  var hrSalesAllStoresRow = document.createElement('tr');
+  var hrTotalHead = document.createElement('th');
+  hrTotalHead.textContent = 'Total';
+  hrSalesAllStoresRow.appendChild(hrTotalHead);
+  var totalTotal = 0;
+
+  for (var j = 0; j < storeFirstPike.hoursOpen.length; j++) {
+    var hrTotalEl = document.createElement('td');
+    hrSalesAllStoresRow.appendChild(hrTotalEl);
+    var hrSalesAllStores = 0;
+    for (var jj = 0; jj < storeLocale.length; jj++) {
+      console.log('hrSalesAllStores' + hrSalesAllStores);
+      hrSalesAllStores += storeLocale[jj].oneHrSales[j];
+    }
+    hrTotalEl.textContent = hrSalesAllStores;
+    totalTotal += hrSalesAllStores;
+  }
+
+  var totalTotalEl = document.createElement('td');
+  totalTotalEl.textContent = totalTotal;
+  hrSalesAllStoresRow.appendChild(totalTotalEl);
+  tableEl.appendChild(hrSalesAllStoresRow);
+}
 
 function CreateTableHeading(){
   tableEl.appendChild(headRowEl);
@@ -264,6 +283,8 @@ console.log('Just ran storeCapHill.populateTable();');
 
 storeAlki.populateTable();
 console.log('Just ran storeAlki.populateTable();');
+
+createHrTotalsRow();
 
 /*---------------------new code----------------------------*/
 //EVENT LISTENERS-------------------------------
