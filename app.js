@@ -12,11 +12,15 @@ var headRowEl = document.createElement('tr');
 var blankEl = document.createElement('th');
 blankEl.textContent = 'Store Location';
 headRowEl.appendChild(blankEl);
+
 for (var i = 0; i < storeFirstPike.hoursOpen.length; i++) {
   var hrsHeadEl = document.createElement('th');
   hrsHeadEl.textContent = storeFirstPike.hoursOpen[i];
   headRowEl.appendChild(hrsHeadEl);
 }
+var totalEl = document.createElement('th');
+totalEl.textContent = 'Totals';
+headRowEl.appendChild(totalEl);
 
 //UpperCamelCase object constructors!!----------
 function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer, hourlyCount) {
@@ -34,6 +38,17 @@ CookieStore.prototype.cookiesPerHr = function () {
   this.hourlyCount.push(totalCookiesHr);
   return totalCookiesHr;
 };
+// function salesPerDay (storeLocale) {
+//   // console.log('----------' + this.name + '----------');
+//   // salesList.push ('----------' + this.name + '----------');
+//   //console.log(storeLocale);
+//   for (var j = 0; j < open.length; j++) {
+//     var cookiesPerHr = this.custPerHr () * storeLocale.avgCookiesPerCustomer;
+//     console.log(open[j] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
+//     oneHrSales.push(Math.round(cookiesPerHr));
+//     salesList.push (open[j] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
+//   }
+// }
 
 //function makeTableHead(){
 
@@ -41,9 +56,6 @@ CookieStore.prototype.cookiesPerHr = function () {
 
 CookieStore.prototype.populateTable = function() {
   var tableEl = document.getElementById('tableId');
-  var totalEl = document.createElement('th');
-  totalEl.textContent = 'Totals';
-  headRowEl.appendChild(totalEl);
   tableEl.appendChild(headRowEl);
 
   var tableRowEl = document.createElement('tr');
@@ -56,6 +68,7 @@ CookieStore.prototype.populateTable = function() {
     totalSalesHrEl.textContent = this.hourlyCount[ii];
     tableRowEl.appendChild(totalSalesHrEl);
   }
+  //salesPerDay(this.storeLocale);
   // tableRowEl.textContent = this.cookiesPerHr();
   tableEl.appendChild(tableRowEl);
 
