@@ -4,3 +4,27 @@ th{
   background-color: #B55B48;
   color: white;
 }
+fieldset {
+  min-width: 227px;
+}
+body {
+  height: 100%;
+}
+div {
+  height: 100%;
+}
+#new-store-form {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  margin-top: 10%;
+}
+label {
+  margin-bottom: 2px;
+}
+input {
+  margin-bottom: 5%;
+}
+
+label, input {
+  display: block;
