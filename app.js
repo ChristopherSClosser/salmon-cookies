@@ -9,46 +9,40 @@ var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, st
 
 var tableEl = document.getElementById('tableId');
 var headRowEl = document.createElement('tr');
-var blankEl = document.createElement('th');
+var blankEl = document.createElement('th', 'id=tableHeadings');
 blankEl.textContent = 'Store Location';
 headRowEl.appendChild(blankEl);
 
-for (var i = 0; i < storeFirstPike.hoursOpen.length; i++) {
-  var hrsHeadEl = document.createElement('th');
-  hrsHeadEl.textContent = storeFirstPike.hoursOpen[i];
-  headRowEl.appendChild(hrsHeadEl);
-}
-var totalEl = document.createElement('th');
-totalEl.textContent = 'Totals';
-headRowEl.appendChild(totalEl);
-
 //UpperCamelCase object constructors!!----------
-function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer, hourlyCount) {
+function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer, hourlyCount, oneHrSales) {
   this.name = name || 'Unknown';
   this.minCustomersHr = minCustomersHr;
   this.maxCustomersHr = maxCustomersHr;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.hourlyCount = hourlyCount || [];
+  this.oneHrSales = oneHrSales || [];
   this.range = maxCustomersHr - minCustomersHr;
   this.hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm', '8pm'];
 }
 
-CookieStore.prototype.cookiesPerHr = function () {
+CookieStore.prototype.cookiesPerHr = function() {
   var totalCookiesHr = Math.round(Math.random() * ((this.range + 1) + this.minCustomersHr) * this.avgCookiesPerCustomer);
   this.hourlyCount.push(totalCookiesHr);
   return totalCookiesHr;
 };
-// function salesPerDay (storeLocale) {
-//   // console.log('----------' + this.name + '----------');
-//   // salesList.push ('----------' + this.name + '----------');
-//   //console.log(storeLocale);
-//   for (var j = 0; j < open.length; j++) {
-//     var cookiesPerHr = this.custPerHr () * storeLocale.avgCookiesPerCustomer;
-//     console.log(open[j] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
-//     oneHrSales.push(Math.round(cookiesPerHr));
-//     salesList.push (open[j] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
-//   }
-// }
+
+CookieStore.prototype.salesPerDay = function(storeLocale) {
+  console.log('----------' + this.name + '----------');
+  //salesList.push ('----------' + this.name + '----------');
+  //console.log(storeLocale);
+  for(var j = 0; j < this.hoursOpenlength; j++) {
+    var cookiesSoldPerHr = this.cookiesPerHr() * this.avgCookiesPerCustomer;
+    console.log(this.hoursOpen[j] + ': ' + Math.round(cookiesSoldPerHr) + ' Cookies sold.');
+    this.oneHrSales.push(Math.round(cookiesSoldPerHr));
+    console.log(j);
+    //salesList.push (this.hoursOpen[j] + ': ' + Math.round (cookiesPerHr) + ' Cookies sold.');
+  }
+};
 
 //function makeTableHead(){
 
@@ -71,7 +65,20 @@ CookieStore.prototype.populateTable = function() {
   //salesPerDay(this.storeLocale);
   // tableRowEl.textContent = this.cookiesPerHr();
   tableEl.appendChild(tableRowEl);
+};
 
+function CreateTableHeading(){
+  for(var i = 0; i < storeFirstPike.hoursOpen.length; i++) {
+    var hrsHeadEl = document.createElement('th', 'id=tableHeadings');
+    hrsHeadEl.textContent = storeFirstPike.hoursOpen[i];
+    headRowEl.appendChild(hrsHeadEl);
+    console.log('This is pass # ' + i + '\nSetting the hrsHeadEl');
+  }
+  var totalEl = document.createElement('th');
+  totalEl.textContent = 'Totals';
+  headRowEl.appendChild(totalEl);
+  console.log('Finished Setting hrsHeadEl');
+}
   // var tableEl = document.getElementById('tableId');
   // var rowEl = document.createElement('tr');
   // tableEl.appendChild(rowEl);
@@ -90,18 +97,25 @@ CookieStore.prototype.populateTable = function() {
   //   numberRowEl.appendChild(hoursEl);
   //   console.log(hoursEl);
   // }
-};
 
 // CookieStore.prototype.salesPerDay = function () {
 //
 // };
 //console.log(storeFirstPike.cookiesPerHr());
 
+CreateTableHeading();
+storeFirstPike.salesPerDay();
+console.log('Just ran storeFirstPike.populateTable();');
 storeFirstPike.populateTable();
+console.log('Just ran storeFirstPike.populateTable();');
 storeSeaTac.populateTable();
+console.log('Just ran storeSeaCenter.populateTable();');
 storeSeaCenter.populateTable();
+console.log('Just ran storeSeaCenter.populateTable();');
 storeCapHill.populateTable();
+console.log('Just ran storeCapHill.populateTable();');
 storeAlki.populateTable();
+console.log('Just ran storeAlki.populateTable();');
 // console.log(storeFirstPike.hourlySales());
 // console.log(storeFirstPike.cookiesPerHr());
 // // for (var i = 0; i < storeLocale.length; i++) {
