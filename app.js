@@ -104,14 +104,13 @@ function CreateTableHeading(){
 //
 // };
 //console.log(storeFirstPike.cookiesPerHr());
-
+CreateTableHeading();
 //storeFirstPike.salesPerDay();
 console.log('Just ran storeFirstPike.populateTable();');
 storeFirstPike.populateTable();
 console.log('Just ran storeFirstPike.populateTable();');
 storeSeaTac.populateTable();
 console.log('Just ran storeSeaCenter.populateTable();');
-CreateTableHeading();
 storeSeaCenter.populateTable();
 console.log('Just ran storeSeaCenter.populateTable();');
 storeCapHill.populateTable();

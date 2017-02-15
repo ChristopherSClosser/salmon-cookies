@@ -1,3 +1,6 @@
-tableHeadings{
-
+th{
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #B55B48;
+  color: white;
 }
