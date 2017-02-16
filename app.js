@@ -149,6 +149,7 @@ function handleSubmit(event){
   console.log(store);
   console.log(store.cookiesPerHr());
 
+//pop is oppisite of push
   storeLocale.push(store);
 
   refreshTable();
