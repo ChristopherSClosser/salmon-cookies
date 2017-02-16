@@ -6,6 +6,39 @@ th {
   border-style: solid;
   border-width: thin;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+#nav{
+  width: 100%;
+  position: relative;
+  text-align: center;
+  height: 60px;
+  background-color: #B55B48;
+}
+#top{
+  color:black;
+}
+#pic{
+  height:85%;
+  float:left;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: .5%;
+}
+
 #tableId{
   /*display: table;*/
   /*border-collapse: separate;*/
@@ -20,10 +53,11 @@ th {
 }
 tr{
   display: table-row;
-  border-style: outset;
+  border-top-style: ridge;
+  border-left-style: ridge;
   border-width: 0px;
   border-spacing: 2px;
-  border-color: rgba(249, 198, 26, 0.32);
+  border-color: rgba(255, 230, 221, 0.32);
 }
 td{
   border-spacing: inherit;
