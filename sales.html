@@ -13,16 +13,16 @@
     <div class="form">
       <form id="new-store-form">
         <fieldset>
-          <legend>Enter a new cookie store.</legend>
+          <legend>Enter a new cookie store.<br>NOTE All fields re reqiured.</legend>
           <!-- label for input -->
           <label for="cookieStoreName">New store name:</label>
-          <input type="text" name="cookieStoreName">
-          <label for="minCust">Minimum customers per hour:</label>
-          <input type="text" name="minCust">
+          <input type="text" name="cookieStoreName" placeholder="New store" required="required">
+          <label for="minCust" type="number">Minimum customers per hour:</label>
+          <input type="text" name="minCust" type="number" required="required" placeholder="Enter Number">
           <label for="maxCust">Maximum customers per hour:</label>
-          <input type="text" name="maxCust" value="">
+          <input type="text" name="maxCust" type="number" required="required" placeholder="Enter Number">
           <label for="avgCookies">Average cookies per customer:</label>
-          <input type="text" name="avgCookies" value="">
+          <input type="text" name="avgCookies" required="required" placeholder="Enter Number">
           <button type="submit" name="button">SUBMIT</button>
         </fieldset>
       </form>

@@ -19,7 +19,7 @@ function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.hourlyCount = hourlyCount || [];
   this.oneHrSales = oneHrSales || [];
-  this.range = maxCustomersHr - minCustomersHr;
+  this.range = Math.abs(maxCustomersHr - minCustomersHr);
   //add a tagId for each store---------------------------->
   this.hoursOpen = [/*'Store Location'*/'6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm', '8pm', /*'Totals'*/];
   this.totalPerDay = 0;
@@ -27,7 +27,7 @@ function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer
 
 /*----------------COOKIES PER HOUR METHOD------------------*/
 CookieStore.prototype.cookiesPerHr = function() {
-  var totalCookiesHr = Math.round(Math.random() * ((this.range + 1) + this.minCustomersHr) * this.avgCookiesPerCustomer);
+  var totalCookiesHr = Math.ceil(Math.random() * ((this.range) + this.minCustomersHr) * this.avgCookiesPerCustomer);
   this.oneHrSales.push(totalCookiesHr);
   console.log('counting cookies');
   //return totalCookiesHr;
@@ -143,6 +143,10 @@ function handleSubmit(event){
   var minCustomersHr = parseInt(event.target.minCust.value);
   var maxCustomersHr = parseInt(event.target.maxCust.value);
   var avgCookiesPerCustomer = parseFloat(event.target.avgCookies.value);
+
+  minCustomersHr = Math.abs(minCustomersHr);
+  maxCustomersHr = Math.abs(maxCustomersHr);
+  avgCookiesPerCustomer = Math.abs(avgCookiesPerCustomer);
 
   var store = new CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer);
 
