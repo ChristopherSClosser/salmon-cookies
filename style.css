@@ -1,8 +1,36 @@
-th{
+th {
   padding-top: 11px;
   padding-bottom: 11px;
   background-color: #B55B48;
   color: white;
+  border-style: solid;
+  border-width: thin;
+}
+#tableId{
+  /*display: table;*/
+  /*border-collapse: separate;*/
+  border-spacing: 0px;
+  border-style: solid;
+  display: table;
+  border-collapse: separate;
+  border-color: #B55B48;
+  width: 100%;
+  margin: auto;
+  margin-top: 5%;
+}
+tr{
+  display: table-row;
+  border-style: outset;
+  border-width: 0px;
+  border-spacing: 2px;
+  border-color: rgba(249, 198, 26, 0.32);
+}
+td{
+  border-spacing: inherit;
+  display: table-cell;
+  border-style: inherit;
+  border-color: inherit;
+
 }
 fieldset {
   min-width: 227px;
