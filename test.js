@@ -165,3 +165,4 @@ console.log(salesList);
 storeElement.textContent = salesList;
 document.body.appendChild (storeElement);
 //iterates through stores and open times
+/*---------------------FORMS!!!--------------------------->*/
