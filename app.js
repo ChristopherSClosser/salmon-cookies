@@ -9,12 +9,6 @@ var storeAlki = new CookieStore('Alki', 2, 16, 4.6);
 var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, storeAlki];
 
 var tableEl = document.getElementById('tableId');
-//get id for thead wich = tableHeadings
-var headRowEl = document.createElement('tr');
-//blankEl append to thead
-var blankEl = document.createElement('th', 'id=tableHeadings');
-blankEl.textContent = 'Store Location';
-headRowEl.appendChild(blankEl);
 
 //UpperCamelCase object constructors!!----------
 function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer, hourlyCount, oneHrSales) {
@@ -38,7 +32,6 @@ CookieStore.prototype.cookiesPerHr = function() {
 };
 
 CookieStore.prototype.populateTable = function() {
-  var tableEl = document.getElementById('tableId');
   var tableRowEl = document.createElement('tr');
   //nameEl append to thead
   var nameEl = document.createElement('th');
@@ -76,7 +69,6 @@ function createHrTotalsRow(){
     hrSalesAllStoresRow.appendChild(hrTotalEl);
     var hrSalesAllStores = 0;
     for (var jj = 0; jj < storeLocale.length; jj++) {
-      console.log('hrSalesAllStores' + hrSalesAllStores);
       hrSalesAllStores += storeLocale[jj].oneHrSales[j];
     }
     hrTotalEl.textContent = hrSalesAllStores;
@@ -90,6 +82,13 @@ function createHrTotalsRow(){
 }
 
 function CreateTableHeading(){
+  //get id for thead wich = tableHeadings
+  var headRowEl = document.createElement('tr');
+  //blankEl append to thead
+  var blankEl = document.createElement('th', 'id=tableHeadings');
+  blankEl.textContent = 'Store Location';
+  headRowEl.appendChild(blankEl);
+
   tableEl.appendChild(headRowEl);
 
   for(var i = 0; i < storeFirstPike.hoursOpen.length; i++) {
@@ -106,43 +105,48 @@ function CreateTableHeading(){
 
 /*-------------------Call function-------------------------*/
 
-CreateTableHeading();
-
-storeFirstPike.populateTable();
-console.log('Just ran storeFirstPike.populateTable();');
-
-storeSeaTac.populateTable();
-console.log('Just ran storeSeaTac.populateTable();');
-
-storeSeaCenter.populateTable();
-console.log('Just ran storeSeaCenter.populateTable();');
-
-storeCapHill.populateTable();
-console.log('Just ran storeCapHill.populateTable();');
-
-storeAlki.populateTable();
-console.log('Just ran storeAlki.populateTable();');
-
-createHrTotalsRow();
+createTable();
 
 /*---------------------new code----------------------------*/
 //EVENT LISTENERS-------------------------------
 
-// var storeFormEl = document.getElementById('new-store-form');
-// //---------------------------
-// storeFormEl.addEventListener('submit', handleSubmit);
-//
-// function handleSubmit(event){
-//   //both preventDefault and stopPropagation need to be first
-//   event.preventDefault();//prevents backend server pushing and page reload
-//   event.stopPropagation();//prevents bubbling and capturing
-//   //-----------------------form---input tag-------value
-//   var name = event.target.cookieStoreName.value;
-//   var minCustomersHr = parseInt(event.target.minCust.value);
-//   var maxCustomersHr = parseInt(event.target.maxCust.value);
-//   var avgCookiesPerCustomer = (event.target.avgCookies.value);
-//   var store = new CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer);
-//   console.log(store);
-//   console.log(store.cookiesPerHr());
-//   //console.log('User has submitted.' + '\n' + name + '\n' + minCustomersHr + '\n' + maxCustomersHr + '\n' + avgCookiesPerCustomer);
-// }
+function createTable(){
+  CreateTableHeading();
+  // Itterate over storeLocale, and perform populateTable() for each location.
+  for(var i = 0; i < storeLocale.length; i++){
+    storeLocale[i].totalPerDay = 0;
+    storeLocale[i].populateTable();
+  }
+  createHrTotalsRow();
+}
+
+function refreshTable(){
+  var tableEl = document.getElementById('tableId');
+  tableEl.innerHTML = '';
+  createTable();
+}
+
+var storeFormEl = document.getElementById('new-store-form');
+//---------------------------
+storeFormEl.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event){
+  //both preventDefault and stopPropagation need to be first
+  event.preventDefault();//prevents backend server pushing and page reload
+  event.stopPropagation();//prevents bubbling and capturing
+  //-----------------------form---input tag-------value
+  var name = event.target.cookieStoreName.value;
+  var minCustomersHr = parseInt(event.target.minCust.value);
+  var maxCustomersHr = parseInt(event.target.maxCust.value);
+  var avgCookiesPerCustomer = parseFloat(event.target.avgCookies.value);
+
+  var store = new CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer);
+
+  console.log(store);
+  console.log(store.cookiesPerHr());
+
+  storeLocale.push(store);
+
+  refreshTable();
+  //console.log('User has submitted.' + '\n' + name + '\n' + minCustomersHr + '\n' + maxCustomersHr + '\n' + avgCookiesPerCustomer);
+}
