@@ -1,12 +1,29 @@
 *{
-
+  /*background: url();
+  background-size: 100%;
+  background-repeat: no-repeat;*/
 }
-#index-body {
+#index-body, #sales-body {
   height: 1050px;
-  width:100%;
 
 }
+#first {
+  background-image: url(images/pike-place.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+#second {
+  background-image: url(images/sea-tac.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
 
+h1{
+  margin-top: 75px;
+}
+#cookie-img{
+  width: 100%;
+}
 #logo{
   font-family: 'Barrio', cursive, sans-serif;
   height: 117%;
@@ -56,6 +73,7 @@ div {
   border-width: 1px;
   padding-left: 5%;
   padding-top: 0;
+
 }
 /*Selects the first line of every <p> element*/
 p::first-line {
