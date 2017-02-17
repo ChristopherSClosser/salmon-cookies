@@ -2,17 +2,78 @@
 
 }
 #index-body {
-  height: 800px;
+  height: 1050px;
   width:100%;
 
 }
+
+#logo{
+  font-family: 'Barrio', cursive, sans-serif;
+  height: 117%;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(246, 222, 187);
+  font-weight: bold;
+}
+div {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+#left-column{
+  height: 100%;
+  width: 58.3%;
+  float: left;
+  margin: 1%;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding: 0;
+  background-image: linear-gradient(to bottom, #f6debb,#B55B48);
+}
+#right-column {
+  width: 40%;
+  height: 100%;
+  margin: 1%;
+  float: right;
+  width: 37%;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding: 0;
+}
+#first, #second, #third, #fourth, #fifth{
+
+  text-align: left;
+  height: 10em;
+  margin-top: 1em;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding-left: 5%;
+  padding-top: 0;
+}
+/*Selects the first line of every <p> element*/
+p::first-line {
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+em {
+  font-size: 20px;
+}
+
 #home {
   margin-left: 0;
 }
 .main-content{
   border: none;
   border-color: black;
-  height: 88%;
+  height: 100%;
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 35px;
