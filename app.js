@@ -10,6 +10,7 @@ var storeLocale = [storeFirstPike, storeSeaTac, storeSeaCenter, storeCapHill, st
 
 var tableEl = document.getElementById('tableId');
 
+/*------------------STORE CONSTRUCTOR---------------------*/
 //UpperCamelCase object constructors!!----------
 function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer, hourlyCount, oneHrSales) {
   this.name = name || 'Unknown';
@@ -18,19 +19,21 @@ function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
   this.hourlyCount = hourlyCount || [];
   this.oneHrSales = oneHrSales || [];
-  this.range = maxCustomersHr - minCustomersHr;
+  this.range = Math.abs(maxCustomersHr - minCustomersHr);
   //add a tagId for each store---------------------------->
   this.hoursOpen = [/*'Store Location'*/'6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm','7pm', '8pm', /*'Totals'*/];
   this.totalPerDay = 0;
 }
 
+/*----------------COOKIES PER HOUR METHOD------------------*/
 CookieStore.prototype.cookiesPerHr = function() {
-  var totalCookiesHr = Math.round(Math.random() * ((this.range + 1) + this.minCustomersHr) * this.avgCookiesPerCustomer);
+  var totalCookiesHr = Math.ceil(Math.random() * ((this.range) + this.minCustomersHr) * this.avgCookiesPerCustomer);
   this.oneHrSales.push(totalCookiesHr);
   console.log('counting cookies');
   //return totalCookiesHr;
 };
 
+/*----------------POPULATE TABLE METHOD--------------------*/
 CookieStore.prototype.populateTable = function() {
   var tableRowEl = document.createElement('tr');
   //nameEl append to thead
@@ -57,6 +60,7 @@ CookieStore.prototype.populateTable = function() {
   tableEl.appendChild(tableRowEl);
 };
 
+/*----------------CREATE TOTAL FOOTER----------------------*/
 function createHrTotalsRow(){
   var hrSalesAllStoresRow = document.createElement('tr');
   var hrTotalHead = document.createElement('th');
@@ -81,6 +85,7 @@ function createHrTotalsRow(){
   tableEl.appendChild(hrSalesAllStoresRow);
 }
 
+/*-----------------CREATE TABLE HEAD-----------------------*/
 function CreateTableHeading(){
   //get id for thead wich = tableHeadings
   var headRowEl = document.createElement('tr');
@@ -107,8 +112,7 @@ function CreateTableHeading(){
 
 createTable();
 
-/*---------------------new code----------------------------*/
-//EVENT LISTENERS-------------------------------
+/*------------------------new code-------------------------*/
 
 function createTable(){
   CreateTableHeading();
@@ -126,25 +130,30 @@ function refreshTable(){
   createTable();
 }
 
+//--------------------EVENT LISTENERS----------------------
 var storeFormEl = document.getElementById('new-store-form');
-//---------------------------
 storeFormEl.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event){
   //both preventDefault and stopPropagation need to be first
   event.preventDefault();//prevents backend server pushing and page reload
   event.stopPropagation();//prevents bubbling and capturing
-  //-----------------------form---input tag-------value
+  //--------form---input-------tag-------value
   var name = event.target.cookieStoreName.value;
   var minCustomersHr = parseInt(event.target.minCust.value);
   var maxCustomersHr = parseInt(event.target.maxCust.value);
   var avgCookiesPerCustomer = parseFloat(event.target.avgCookies.value);
+
+  minCustomersHr = Math.abs(minCustomersHr);
+  maxCustomersHr = Math.abs(maxCustomersHr);
+  avgCookiesPerCustomer = Math.abs(avgCookiesPerCustomer);
 
   var store = new CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer);
 
   console.log(store);
   console.log(store.cookiesPerHr());
 
+//pop is oppisite of push
   storeLocale.push(store);
 
   refreshTable();
