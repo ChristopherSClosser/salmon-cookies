@@ -1,3 +1,28 @@
+*{
+
+}
+#index-body {
+  height: 800px;
+  width:100%;
+
+}
+#home {
+  margin-left: 0;
+}
+.main-content{
+  border: none;
+  border-color: black;
+  height: 88%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 35px;
+  background-image: linear-gradient(to bottom, #B55B48, #f6debb);
+
+}
+/*.main-content {
+  height: 100%;
+  display: inline-block;
+}*/
 th {
   padding-top: 11px;
   padding-bottom: 11px;
@@ -22,13 +47,19 @@ a {
 
 #nav{
   width: 100%;
-  position: relative;
+  min-width: 653px;
+  position: fixed;
   text-align: center;
   height: 60px;
   background-color: #B55B48;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
 }
-#top{
+#go-top{
   color:black;
+  z-index: 9;
 }
 #pic{
   height:85%;
@@ -50,6 +81,7 @@ a {
   width: 100%;
   margin: auto;
   margin-top: 5%;
+  font-family: sans-serif;
 }
 tr{
   display: table-row;
@@ -68,18 +100,17 @@ td{
 }
 fieldset {
   min-width: 227px;
-}
-body {
-  height: 100%;
-}
-div {
-  height: 100%;
-}
-#new-store-form {
-  width: 50%;
+  max-width: 300px;width: 50%;
   height: 50%;
   margin: auto;
   margin-top: 10%;
+}
+
+
+
+#new-store-form {
+
+
 }
 label {
   margin-bottom: 2px;
@@ -90,3 +121,16 @@ input {
 
 label, input {
   display: block;
+}
+footer{
+  position: fixed;
+  color: black;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #f6debb;
+  left: 0;
+}
+tr:nth-child(odd){
+  background-color: #f6debb;
+}
