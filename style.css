@@ -1,7 +1,5 @@
-*{
-  /*background: url();
-  background-size: 100%;
-  background-repeat: no-repeat;*/
+html{
+text-align: center;
 }
 #index-body, #sales-body {
   height: 1050px;
@@ -47,11 +45,9 @@ div {
   width: 58.3%;
   float: left;
   margin: 1%;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
   padding: 0;
   background-image: linear-gradient(to bottom, #f6debb,#B55B48);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
 }
 #right-column {
   width: 40%;
@@ -59,10 +55,9 @@ div {
   margin: 1%;
   float: right;
   width: 37%;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
   padding: 0;
+  background-image: linear-gradient(to bottom, #f6debb,#B55B48);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
 }
 #first, #second, #third, #fourth, #fifth{
 
@@ -74,6 +69,7 @@ div {
   border-width: 1px;
   padding-left: 5%;
   padding-top: 0;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
 
 }
 /*Selects the first line of every <p> element*/
@@ -97,6 +93,7 @@ em {
   margin-right: 5%;
   margin-top: 35px;
   background-image: linear-gradient(to bottom, #B55B48, #f6debb);
+  min-width: 850.5px;
 
 }
 /*.main-content {
@@ -126,16 +123,17 @@ a {
 }
 
 #nav{
-  width: 100%;
+  width: 90%;
   min-width: 653px;
   position: fixed;
   text-align: center;
   height: 60px;
   background-color: #B55B48;
   padding: 0;
-  margin: 0;
+  margin: auto;
   top: 0;
-  left: 0;
+  left: 5%;
+  min-width: 864px;
 }
 #go-top{
   color:black;
@@ -161,7 +159,6 @@ a {
   border-color: #B55B48;
   width: 100%;
   margin: auto;
-  margin-top: 5%;
   font-family: sans-serif;
 }
 tr{
@@ -207,12 +204,13 @@ footer{
   position: fixed;
   color: black;
   bottom: 0;
-  width: 80%;
+  width: 86%;
   height: 50px;
   background-color: #f6debb;
   left: 0;
+  padding-right: 4%;
   text-align: center;
-  margin-left: 5.8%;
+  margin-left: 4.8%;
 }
 /*#pfoot::first-line{
   font-size: 10px;
@@ -222,8 +220,6 @@ footer{
   float: right;
   font-size: 15px;
   float: right;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 tr:nth-child(odd){
   background-color: #f6debb;
