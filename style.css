@@ -7,6 +7,7 @@
   height: 1050px;
 
 }
+
 #first {
   background-image: url(images/pike-place.jpg);
   background-repeat: no-repeat;
@@ -76,7 +77,7 @@ div {
 
 }
 /*Selects the first line of every <p> element*/
-p::first-line {
+.first::first-line {
   font-size: 20px;
   font-family: sans-serif;
   font-weight: bold;
@@ -139,6 +140,7 @@ a {
 #go-top{
   color:black;
   z-index: 9;
+  float: left;
 }
 #pic{
   height:85%;
@@ -205,10 +207,23 @@ footer{
   position: fixed;
   color: black;
   bottom: 0;
-  width: 100%;
+  width: 80%;
   height: 50px;
   background-color: #f6debb;
   left: 0;
+  text-align: center;
+  margin-left: 5.8%;
+}
+/*#pfoot::first-line{
+  font-size: 10px;
+}*/
+#pfoot{
+  font-size: 15px;
+  float: right;
+  font-size: 15px;
+  float: right;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 tr:nth-child(odd){
   background-color: #f6debb;
