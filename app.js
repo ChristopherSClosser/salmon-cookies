@@ -13,6 +13,7 @@ var tableEl = document.getElementById('tableId');
 /*------------------STORE CONSTRUCTOR---------------------*/
 //UpperCamelCase object constructors!!----------
 function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer, hourlyCount, oneHrSales) {
+  console.log('-------------STORE CONSTRUCTOR-------------');
   this.name = name || 'Unknown';
   this.minCustomersHr = minCustomersHr;
   this.maxCustomersHr = maxCustomersHr;
@@ -27,14 +28,16 @@ function CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer
 
 /*----------------COOKIES PER HOUR METHOD------------------*/
 CookieStore.prototype.cookiesPerHr = function() {
+  console.log('-------------COOKIES PER HOUR METHOD-------------');
   var totalCookiesHr = Math.ceil(Math.random() * ((this.range) + this.minCustomersHr) * this.avgCookiesPerCustomer);
   this.oneHrSales.push(totalCookiesHr);
-  console.log('counting cookies');
+  //console.log('counting cookies');
   //return totalCookiesHr;
 };
 
 /*----------------POPULATE TABLE METHOD--------------------*/
 CookieStore.prototype.populateTable = function() {
+  console.log('-------------POPULATE TABLE METHOD-------------');
   var tableRowEl = document.createElement('tr');
   //nameEl append to thead
   var nameEl = document.createElement('th');
@@ -62,6 +65,7 @@ CookieStore.prototype.populateTable = function() {
 
 /*----------------CREATE TOTAL FOOTER----------------------*/
 function createHrTotalsRow(){
+  console.log('-------------CREATING TOTALS FOOTER-------------');
   var hrSalesAllStoresRow = document.createElement('tr');
   var hrTotalHead = document.createElement('th');
   hrTotalHead.textContent = 'Total';
@@ -83,10 +87,12 @@ function createHrTotalsRow(){
   totalTotalEl.textContent = totalTotal;
   hrSalesAllStoresRow.appendChild(totalTotalEl);
   tableEl.appendChild(hrSalesAllStoresRow);
+  console.log('-------------LISTENING FOR EVENTS-------------');
 }
 
 /*-----------------CREATE TABLE HEAD-----------------------*/
 function CreateTableHeading(){
+  console.log('-------------CREATING TABLE HEADINGS-------------');
   //get id for thead wich = tableHeadings
   var headRowEl = document.createElement('tr');
   //blankEl append to thead
@@ -105,7 +111,7 @@ function CreateTableHeading(){
   var totalEl = document.createElement('th');
   totalEl.textContent = 'Totals';
   headRowEl.appendChild(totalEl);
-  console.log('Finished Setting hrsHeadEl');
+  //console.log('Finished Setting hrsHeadEl');
 }
 
 /*-------------------Call function-------------------------*/
@@ -115,6 +121,7 @@ createTable();
 /*------------------------new code-------------------------*/
 
 function createTable(){
+  console.log('-------------CREATING TABLE-------------');
   CreateTableHeading();
   // Itterate over storeLocale, and perform populateTable() for each location.
   for(var i = 0; i < storeLocale.length; i++){
@@ -125,6 +132,7 @@ function createTable(){
 }
 
 function refreshTable(){
+  console.log('-------------REFRESHING TABLE-------------');
   var tableEl = document.getElementById('tableId');
   tableEl.innerHTML = '';
   createTable();
@@ -135,6 +143,7 @@ var storeFormEl = document.getElementById('new-store-form');
 storeFormEl.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event){
+  console.log('-------------SUBMITTING FORM-------------');
   //both preventDefault and stopPropagation need to be first
   event.preventDefault();//prevents backend server pushing and page reload
   event.stopPropagation();//prevents bubbling and capturing
@@ -150,8 +159,8 @@ function handleSubmit(event){
 
   var store = new CookieStore(name, minCustomersHr, maxCustomersHr, avgCookiesPerCustomer);
 
-  console.log(store);
-  console.log(store.cookiesPerHr());
+  // console.log(store);
+  // console.log(store.cookiesPerHr());
 
 //pop is oppisite of push
   storeLocale.push(store);
