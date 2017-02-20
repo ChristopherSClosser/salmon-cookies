@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- sales page for the boss -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Sales Report</title>
+    <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+  </head>
+  <body id="sales-body">
+    <header id="nav">
+      <img id="pic" src="images/salmon.png" alt="Salmon pic" />
+      <p id="logo">Pat's Salmon Cookies</p>
+      <a id="home"href="index.html">Home</a>
+      <a href="sales.html">Sales Report</a>
+      <a href="https://www.google.com/search?q=salmon+cookies&oq=salmon+cookies&aqs=chrome..69i57j69i60l3j0l2.4228j0j4&sourceid=chrome&ie=UTF-8">Community</a>
+      <a href="index.html">Store Locations</a>
+    </header>
+    <h1>Sales Report</h1>
+    <h2>Possible Cookies Sold Per Hour:</h2>
+    <table id ="tableId"></table>
+    <div class="form">
+      <form id="new-store-form">
+        <fieldset>
+          <legend>Enter a new cookie store.<br>NOTE: All fields re reqiured.</legend>
+          <!-- label for input -->
+          <label for="cookieStoreName">New store name:</label>
+          <input type="text" name="cookieStoreName" placeholder="New Store" required="required">
+          <label for="minCust" type="number">Minimum customers per hour:</label>
+          <input type="text" name="minCust" type="number" required="required" placeholder="Enter Number">
+          <label for="maxCust">Maximum customers per hour:</label>
+          <input type="text" name="maxCust" type="number" required="required" placeholder="Enter Number">
+          <label for="avgCookies">Average cookies per customer:</label>
+          <input type="text" name="avgCookies" required="required" placeholder="Enter Number">
+          <button type="submit" name="button">SUBMIT</button>
+        </fieldset>
+      </form>
+    </div>
+    <script src="app.js" type="text/javascript"></script>
+  </body>
+</html>
