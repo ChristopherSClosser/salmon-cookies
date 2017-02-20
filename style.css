@@ -1,7 +1,6 @@
 html{
 text-align: center;
 }
-
 #index-body, #sales-body {
   height: 1050px;
 }
@@ -231,9 +230,6 @@ footer{
   margin-left: 4.8%;
   box-shadow: 0 -6px 14px 0 rgba(0,0,0,0.16),0 -4px 22px 0 rgba(0,0,0,0.12)!important;
 }
-/*#pfoot::first-line{
-  font-size: 10px;
-}*/
 #pfoot{
   font-size: 15px;
   float: right;
