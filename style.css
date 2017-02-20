@@ -1,9 +1,9 @@
 html{
 text-align: center;
 }
+
 #index-body, #sales-body {
   height: 1050px;
-
 }
 #first {
   background-image: url(images/pike-place.jpg);
@@ -12,6 +12,21 @@ text-align: center;
 }
 #second {
   background-image: url(images/sea-tac.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+#third{
+  background-image: url(images/seacent.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+#fourth{
+  background-image: url(images/caphill.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+#fifth{
+  background-image: url(images/alki.jpg);
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -78,7 +93,6 @@ div {
 em {
   font-size: 20px;
 }
-
 #home {
   margin-left: 0;
 }
@@ -183,7 +197,7 @@ fieldset {
   height: 16px;
   background-color: #7699B2;
   box-shadow: 0 2px 14px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
-  margin-top: 34px;
+  margin-top: 32px;
 }
 #order{
   margin-bottom: 12px;
